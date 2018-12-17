@@ -23,9 +23,29 @@ add_executable(SAP sap.c)
 target_link_libraries(SAP ${GTK3_LIBRARIES})
 endif ()
 
+add_definitions("-Wall -g")
 
-add_executable(SAP sap.c player.c player.h playlist.c playlist.h song.c song.h manager.c manager.h SAPDefine.h log.h log.c filetools.c filetools.h tools.c tools.h main.c)
+
+add_executable(SAP 
+                sap.c 
+                player.c 
+                player.h 
+                playlist.c 
+                playlist.h 
+                song.c 
+                song.h 
+                manager.c 
+                manager.h 
+                SAPDefine.h 
+                log.h 
+                log.c 
+                filetools.c 
+                filetools.h 
+                tools.c 
+                tools.h 
+                list.c
+                main.c)
 
 target_link_libraries(SAP
-        SDL2
+       # SDL2
         )

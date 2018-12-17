@@ -20,13 +20,39 @@ typedef struct SAPFile{
     char *path;
 }SAPFile;
 
+typedef struct SAPFileList{
+    void *val;
+    struct SAPFileList *last;
+    struct SAPFileList *Next;
+}SAPFileList;
+
+
+SAPFileList* sap_file_list_alloc();
+
+void sap_file_list_clear_and_free(SAPFileList *list);
+
+int sap_file_list_add(SAPFileList *list, SAPFile *file);
+
+int sap_file_list_add_at(SAPFileList *list, SAPFile *file, int index);
+
+SAPFile* sap_file_list_get(SAPFileList *list, int index);
+
+int sap_file_list_remove_at(SAPFileList *list, int index);
+
+int sap_file_list_remove(SAPFileList *list, SAPFile *file);
+
+
+
+
 SAPFile* sap_file_alloc();
 
 int sap_file_tools_create(SAPFile *sapFile,char *url);
 
+int sap_file_tools_find_all_file(SAPFile *SAPFile,SAPFileList *list);
+
 int sap_file_read_song_info(SAPFile *file,SAPSong *song);
 
-int sap_file_close();
+void sap_file_close(SAPFile *f);
 
 
 #endif //SAP_FILETOOLS_H

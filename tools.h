@@ -13,4 +13,5 @@ int sap_str_alloc_cpy(char **dst, char *src);
 
 int sap_str_alloc_cpy_with_len(char **dst, char *src,int srclen);
 
+
 #endif //SAP_TOOLS_H

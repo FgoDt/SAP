@@ -12,11 +12,11 @@
 
 #define MAXLOGSTRLEN  1024
 
-int64_t gettime(void){
+long long  gettime(void){
     struct timeval tv;
 
     gettimeofday(&tv,NULL);
-    return (int64_t)tv.tv_sec*1000000+tv.tv_usec;
+    return (long long)tv.tv_sec*1000000+tv.tv_usec;
 }
 
 static int sap_log_level;
@@ -44,7 +44,7 @@ void sap_logp(void *ctx, int level,const char *file, const char *func, const cha
 
     char str[MAXLOGSTRLEN] = "";
 
-    int64_t now = gettime();
+    long long now = gettime();
 
     time_t t;
     time(&t);
